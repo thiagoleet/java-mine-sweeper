@@ -77,4 +77,8 @@ public class Campo {
         return vizinhos.stream()
                 .noneMatch(vizinho -> vizinho.minado);
     }
+
+    public boolean isMarcado() {
+        return marcado;
+    }
 }

@@ -1,5 +1,7 @@
 package me.thiagoleite.cm.modelo;
 
+import me.thiagoleite.cm.excecao.ExplosaoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,5 +41,40 @@ public class Campo {
         } else {
             return false;
         }
+    }
+
+    void alternarMarcacao() {
+        if (!aberto) {
+            marcado = !marcado;
+        }
+
+    }
+
+    boolean abrir() {
+        if (!aberto && !marcado) {
+            aberto = true;
+
+            if (minado) {
+                throw new ExplosaoException();
+            }
+
+            if (vizinhancaSegura()) {
+                // recursividade
+                vizinhos.forEach(vizinho -> vizinho.abrir());
+
+                // Pode ser usado também por Method Reference
+                // vizinhos.forEach(Campo::abrir);
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    boolean vizinhancaSegura() {
+        return vizinhos.stream()
+                .noneMatch(vizinho -> vizinho.minado);
     }
 }

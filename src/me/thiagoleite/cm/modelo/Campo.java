@@ -95,20 +95,12 @@ public class Campo {
     }
 
 
-    public void setAberto(boolean aberto) {
+    void setAberto(boolean aberto) {
         this.aberto = aberto;
     }
 
     public boolean isMinado() {
         return minado;
-    }
-
-    public void setMinado(boolean minado) {
-        this.minado = minado;
-    }
-
-    public void setMarcado(boolean marcado) {
-        this.marcado = marcado;
     }
 
     public int getLinha() {
@@ -117,14 +109,6 @@ public class Campo {
 
     public int getColuna() {
         return coluna;
-    }
-
-    public List<Campo> getVizinhos() {
-        return vizinhos;
-    }
-
-    public void setVizinhos(List<Campo> vizinhos) {
-        this.vizinhos = vizinhos;
     }
 
     boolean objetivoAlcancado() {

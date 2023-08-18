@@ -63,6 +63,7 @@ public class TabuleiroConsole {
             }
             System.out.println(Textos.GAME_WON);
         } catch (ExplosaoException e) {
+            System.out.println(tabuleiro);
             System.out.println(Textos.GAME_OVER);
         }
     }
